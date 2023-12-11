@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+        return 'Homepage';
+})->name('homePage');
 
+Route::get('/movie', function () {
+    return 'Liste des produits';
+});
+
+Route::get('/movie/{id}', function (Request $request, string $id) {
+   return 'Fiche du produit '.$id;
 });
