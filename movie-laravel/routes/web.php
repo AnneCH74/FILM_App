@@ -19,4 +19,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/movie', [MovieController::class, 'index']);
 
-Route::get('/movie/{id}', [MovieController::class, 'show']);
+//Route::get('/movie/{id}', [MovieController::class, 'show']);
+Route::get('/movie/{id}', [MovieController::class, 'showDetails']);
+
