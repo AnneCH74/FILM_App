@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +15,8 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-        return 'Homepage';
-})->name('homePage');
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/movie', function () {
-    return 'Liste des produits';
-});
+Route::get('/movie', [MovieController::class, 'index']);
 
-Route::get('/movie/{id}', function (Request $request, string $id) {
-   return 'Fiche du produit '.$id;
-});
+Route::get('/movie/{id}', [MovieController::class, 'show']);
