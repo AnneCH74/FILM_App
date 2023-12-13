@@ -1,3 +1,5 @@
+<!-- resources/views/app.blade.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +9,14 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
-<header>
-    <!-- Contenu de l'en-tête ici -->
-    <h1>
-    <p><a href="{{ url('/') }}">Home page</a></p>
-    <p><a href="{{ url('/movie') }}">Movies List</a></p>
-    </h1>
-</header>
+
+@include('layouts.header')
 
 <div class="content">
     @yield('content')
 </div>
 
-
 </body>
 </html>
+
+
