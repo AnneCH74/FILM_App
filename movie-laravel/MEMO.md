@@ -1,9 +1,5 @@
 HIERARCHIE SITE 
 
-REPERTOIRES  = "- XXX"
-SOUS-REPERTOIRES = "*XXX"
-FICHIERS = "XXXX"
-
 Étape 1 : Mise en place des URL dans votre fichier de route
 
 movie-laravel\routes\web.php
