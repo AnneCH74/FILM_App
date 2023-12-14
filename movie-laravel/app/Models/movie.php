@@ -9,3 +9,4 @@ class movie extends Model
 {
     use HasFactory;
 }
+

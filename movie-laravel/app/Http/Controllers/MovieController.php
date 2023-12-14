@@ -3,28 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Movie;
-use \Illuminate\Http\RedirectResponse;
+use App\Models\movie;
 
 class MovieController extends Controller
 {
-    public function index(): string
+    public function index()
     {
-        //code pour afficher la liste des films
-       // return 'Liste des produits';
+        // Récupérer la liste des films depuis la base de données
+        $movies = movie::all();
 
-        return view('movies-list');
+        // Passer les données à la vue movies-list
+        return view('movies-list', ['movies' => $movies]);
     }
 
-    public function showDetails($id): string
+    public function showDetails($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-       //Code pour afficher les détails d'un film en fonction de l'ID
-        //return 'Fiche du produit '.$id;
+        // Récupérer les détails du film en fonction de l'ID depuis la base de données
+        $movie = movie::find($id);
 
-        //code pour afficher les films en lien avec blade
-        return view('movie-details');
+        // Passer les données à la vue movie-details
+        return view('movie-details', ['movie' => $movie]);
     }
-
 }
-
 

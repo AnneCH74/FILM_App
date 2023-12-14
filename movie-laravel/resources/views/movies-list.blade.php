@@ -32,7 +32,7 @@
 
 
 @extends('layouts.app')
-@section('title', 'Homepage')
+@section('title', 'Homepage', 'MovieList')
 @section('content')
 
     <!DOCTYPE html>
@@ -50,18 +50,13 @@
 
 <h1>EXPLORE OUR EXCLUSIVE MOVIE COLLECTION</h1>
 
-
-<div class="gallery">
-    <img src="{{ asset('img/napoleonGuitry.jpeg') }}" alt="Napoléon 1955 - Sacha GUITRY">
-    <img src="{{ asset('img/napoleonClavier.jpeg') }}" alt="Napoléon 2002 - Christian CLAVIER">
-    <img src="{{ asset('img/napoleonPhoenix.jpeg') }}" alt="Napoléon 2023 - Joaquin PHOENIX">
-</div>
-
-<div class="gallery">
-    <img src="{{ asset('img/sharknado.jpeg') }}" alt="Sharknado">
-    <img src="{{ asset('img/megaSharkVsOctopus.jpeg') }}" alt="Megashark vs Octopus">
-    <img src="{{ asset('img/sharktopusVsPteracuda.jpeg') }}" alt="Sharktopus vs Pteracuda">
-</div>
+<!-- Afficher la liste des films -->
+<ul>
+    @foreach($movies as $movie)
+        <li><a href="{{ route('movies.show', $movie->id) }}">{{ $movie->Title }}
+        <img src="{{ $movie->image }}"></a></li>
+    @endforeach
+</ul>
 
 <footer>
     <a href="https://www.allocine.fr/" target="_blank">Visit Allociné.fr</a>
