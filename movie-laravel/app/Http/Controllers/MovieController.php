@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use \Illuminate\Http\RedirectResponse;
 
 class MovieController extends Controller
 {
@@ -22,4 +24,7 @@ class MovieController extends Controller
         //code pour afficher les films en lien avec blade
         return view('movie-details');
     }
+
 }
+
+

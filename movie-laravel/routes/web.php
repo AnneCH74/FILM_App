@@ -22,3 +22,4 @@ Route::get('/movie', [MovieController::class, 'index']);
 //Route::get('/movie/{id}', [MovieController::class, 'show']);
 Route::get('/movie/{id}', [MovieController::class, 'showDetails']);
 
+Route::get('/add-movie', [MovieController::class, 'addMovie']);
