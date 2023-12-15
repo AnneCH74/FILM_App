@@ -4,9 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\movie;
+use function Sodium\add;
 
 class MovieController extends Controller
 {
+    //Créer nouvel enregistrement :
+    public function create()
+    {
+return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        global $movie;
+        $movie = movie::create([
+            'Title' => $request-> input('Title'),
+            'image' => $request-> input('image'),
+            'Release'=> $request->input('Release'),
+            'director' =>$request->input('director'),
+            'synopsis' => $request->input('synopsis')
+        ]);
+        return redirect()->route('movie.show',['slug' => $movie->slug, 'post' => $movie->id])->with('success', "L'article a bien été sauvegardé");
+//dd($request->all());
+    }
     public function index()
     {
         // Récupérer la liste des films depuis la base de données
@@ -25,4 +45,8 @@ class MovieController extends Controller
         return view('movie-details', ['movie' => $movie]);
     }
 }
+
+
+
+
 

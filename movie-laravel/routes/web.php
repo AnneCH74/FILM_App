@@ -19,13 +19,17 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/movie', [MovieController::class, 'index']);
 
-//Route::get('/movie/{id}', [MovieController::class, 'show']);
+Route::get('/movie/{id}', [MovieController::class, 'show']);
 Route::get('/movie/{id}', [MovieController::class, 'showDetails']);
 
-Route::get('/add-movie', [MovieController::class, 'addMovie']);
+//Route::get('/add-movie', [MovieController::class, 'addMovie']);
 
 
 
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movies.show');
+//Route pour création nouvel enregistrement
+Route::get('/new',[MovieController::class , 'create'])->name('create');
+Route::post('/new',[MovieController::class , 'store'])->name('create');
+Route::post('/movie.show', 'sto);
 
